@@ -1,18 +1,18 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import ParticleAnimation from '../../animations/ParticleAnimation'
+import ParticleAnimation from './ParticleAnimation'
 import earthSvg from '../../../assets/images/artifacts/earth.svg'
 import spacecraftSvg from '../../../assets/images/artifacts/spacecraft.svg'
 import './earth.css'
 
 // Hooks
-import { useWindowDimensions } from '../../../hooks'
+import { useViewportDimensions } from '../../../hooks'
 
-const Spacecraft = ({ rotationOrigin }) => {
-  const { width, height } = useWindowDimensions()
-  const spacecraftWidth = width * 0.1
-  const spacecraftHeight = spacecraftWidth
+const Spacecraft = ({ earthBottomYDelta }) => {
+  const { width, height } = useViewportDimensions()
+  const spacecraftWidth = width * 0.1 // Width from left to right when facing up
+  const spacecraftHeight = spacecraftWidth // Width from top to bottom when facing down
 
   return <img
     src={spacecraftSvg}
@@ -20,17 +20,16 @@ const Spacecraft = ({ rotationOrigin }) => {
     style={{
       position: 'absolute',
       width: spacecraftWidth,
-      top: `${parseInt(height / 2) - parseInt(1.5 * spacecraftHeight)}px`,
-      left: `${parseInt(width / 2) - parseInt(spacecraftWidth / 2)}px`,
+      minWidth: 100,
+      top: `${parseInt(height / 2 - spacecraftWidth / 2 - earthBottomYDelta / 2)}px`,
+      left: `${parseInt(width / 2) - parseInt(spacecraftHeight / 2)}px`,
+      transform: 'rotate(-90deg)',
     }}
   />
 }
 
 Spacecraft.propTypes = {
-  rotationOrigin: PropTypes.exact({
-    X: PropTypes.number.isRequired,
-    Y: PropTypes.number.isRequired,
-  }),
+  earthBottomYDelta: PropTypes.number.isRequired,
 }
 
 const Earth = ({ diameter, bottomYDelta }) => {
@@ -53,27 +52,21 @@ Earth.propTypes = {
 }
 
 const EarthAndSpacecraft = () => {
-  const { width } = useWindowDimensions()
+  const { width } = useViewportDimensions()
   const earthDiameter = width * 2
   const earthRadius = width
 
-  const earthExtraYDelta = 20
+  const extraYDelta = 10
   const earthBottomYDelta =
     earthRadius -
     Math.sqrt(
       earthRadius**2 -
       (width / 2)**2
-    ) +
-    earthExtraYDelta
-
-  const rotationOrigin = {
-    X: width / 2,
-    Y: earthRadius - earthBottomYDelta,
-  }
+    ) + extraYDelta
 
   return <Fragment>
     <Spacecraft
-      rotationOrigin={rotationOrigin}/>
+      earthBottomYDelta={earthBottomYDelta}/>
     <Earth
       diameter={earthDiameter}
       bottomYDelta={earthBottomYDelta}/>
@@ -81,7 +74,6 @@ const EarthAndSpacecraft = () => {
 }
 
 const Home = () => {
-
   return <div
     style={{
       position: 'relative',

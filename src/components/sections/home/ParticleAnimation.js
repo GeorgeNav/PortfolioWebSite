@@ -1,6 +1,6 @@
 import React from 'react'
 import Particles from 'react-particles-js'
-import { useWindowDimensions } from '../../hooks'
+import { useViewportDimensions } from '../../../hooks'
 
 const particleStyle = {
   display: 'absolute',
@@ -8,7 +8,7 @@ const particleStyle = {
 }
 
 const ParticleAnimation = () => {
-  const { width, height } = useWindowDimensions()
+  const { width, height } = useViewportDimensions()
 
   return <Particles
     style={particleStyle}
@@ -33,9 +33,6 @@ const ParticleAnimation = () => {
         line_linked: {
           enable: false,
         },
-        opacity: {
-          random: false,
-        },
         move: {
           random: false,
           speed: 1,
@@ -54,9 +51,6 @@ const ParticleAnimation = () => {
             enable: true,
             mode: 'repulse'
           },
-          onresize: {
-            enable: true,
-          },
         },
         modes: {
           bubble: {
@@ -66,8 +60,8 @@ const ParticleAnimation = () => {
             opacity: 0
           },
           repulse: {
-            distance: 200,
-            duration: 4
+            distance: 100,
+            duration: 2
           }
         }
       }

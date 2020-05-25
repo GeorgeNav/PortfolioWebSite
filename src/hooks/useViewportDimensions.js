@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 
-const useWindowDimensions = () => {
+const useViewportDimensions = () => {
   const [width, setWidth] = useState(window.innerWidth)
   const [height, setHeight] = useState(window.innerHeight)
 
   useEffect(() => {
     window.addEventListener('resize', () => {
+      // console.log(window.innerWidth, window.innerHeight)
       setWidth(window.innerWidth)
       setHeight(window.innerHeight)
     })
@@ -19,4 +20,4 @@ const useWindowDimensions = () => {
   }
 }
 
-export default useWindowDimensions
+export default useViewportDimensions
