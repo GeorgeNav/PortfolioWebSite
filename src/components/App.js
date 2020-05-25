@@ -3,10 +3,9 @@ import './App.css'
 
 import NavBar from './nav/NavBar'
 import { Home, Details } from './sections'
-import { Box } from '@material-ui/core'
 
 const App = () =>
-  <Box
+  <div
     style={{
       width: '100vw',
       height: '100vh',
@@ -15,6 +14,6 @@ const App = () =>
     <NavBar/>
     <Home/>
     <Details/>
-  </Box>
+  </div>
 
 export default App

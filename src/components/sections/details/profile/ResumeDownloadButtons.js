@@ -6,7 +6,7 @@ import PDFFileIcon from '../../../assets/images/icons/pdf_file_icon.svg'
 import DocFileIcon from '../../../assets/images/icons/doc_file_icon.svg'
 
 // Hooks
-import useResumeURLs from '../../../../hooks/useResumeURLs'
+import { useResumeURLs } from '../../../../hooks'
 
 const iconStyle = {
   width: '30px',

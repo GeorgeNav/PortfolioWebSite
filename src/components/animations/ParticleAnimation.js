@@ -1,20 +1,23 @@
 import React from 'react'
 import Particles from 'react-particles-js'
+import { useWindowDimensions } from '../../hooks'
 
 const particleStyle = {
-  // display: 'absolute',
-  width: '100vw',
-  height: '100vh',
+  display: 'absolute',
   backgroundColor: 'black',
 }
 
-const ParticleAnimation = () =>
-  <Particles
+const ParticleAnimation = () => {
+  const { width, height } = useWindowDimensions()
+
+  return <Particles
     style={particleStyle}
+    width={width}
+    height={height}
     params={{
       particles: {
         number: {
-          value: 161,
+          value: 300,
           density: {
             enable: false
           }
@@ -28,12 +31,16 @@ const ParticleAnimation = () =>
           }
         },
         line_linked: {
-          enable: false
+          enable: false,
+        },
+        opacity: {
+          random: false,
         },
         move: {
-          random: true,
+          random: false,
           speed: 1,
-          direction: 'top',
+          straight: true,
+          direction: 'right',
           out_mode: 'out'
         },
       },
@@ -49,23 +56,23 @@ const ParticleAnimation = () =>
           },
           onresize: {
             enable: true,
-            density_auto: true,
-          }
+          },
         },
         modes: {
           bubble: {
-            distance: 250,
-            duration: 2,
+            distance: 10,
+            duration: 1,
             size: 0,
             opacity: 0
           },
           repulse: {
-            distance: 400,
+            distance: 200,
             duration: 4
           }
         }
       }
     }}>
   </Particles>
+}
 
 export default ParticleAnimation
