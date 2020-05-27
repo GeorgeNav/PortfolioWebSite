@@ -4,10 +4,29 @@ import PropTypes from 'prop-types'
 import ParticleAnimation from './ParticleAnimation'
 import earthSvg from '../../../assets/images/artifacts/earth.svg'
 import spacecraftSvg from '../../../assets/images/artifacts/spacecraft.svg'
+import moonPng from '../../../assets/images/artifacts/moon.png'
 import './earth.css'
 
 // Hooks
 import { useViewportDimensions } from '../../../hooks'
+
+const Moon = () => {
+  const { width, height } = useViewportDimensions()
+  const moonWidth = width * 0.05
+
+  return <img
+    src={moonPng}
+    alt='Moon'
+    style={{
+      position: 'absolute',
+      width: moonWidth,
+      minWidth: 50,
+      top: `${parseInt(height / 6)}px`,
+      left: `${parseInt(width / 6)}px`,
+      transform: 'rotate(-90deg)',
+    }}
+  />
+}
 
 const Spacecraft = ({ earthBottomYDelta }) => {
   const { width, height } = useViewportDimensions()
@@ -16,7 +35,7 @@ const Spacecraft = ({ earthBottomYDelta }) => {
 
   return <img
     src={spacecraftSvg}
-    alt=''
+    alt='Spacecraft'
     style={{
       position: 'absolute',
       width: spacecraftWidth,
@@ -33,14 +52,17 @@ Spacecraft.propTypes = {
 }
 
 const Earth = ({ diameter, bottomYDelta }) => {
+  const { height } = useViewportDimensions()
+
   return <img
     src={earthSvg}
-    alt=''
+    alt='Earth'
     className='rotating'
     style={{
-      position: 'relative',
+      position: 'absolute',
+      pointerEvents: 'none',
       width: diameter,
-      bottom: bottomYDelta,
+      top: height - bottomYDelta,
       left: '-50%',
       margin: 'auto',
     }}/>
@@ -51,7 +73,7 @@ Earth.propTypes = {
   bottomYDelta: PropTypes.number.isRequired,
 }
 
-const EarthAndSpacecraft = () => {
+const EarthAndSpacecraft = () => { // HELP: https://www.youtube.com/watch?v=RygpvV9YHqU
   const { width } = useViewportDimensions()
   const earthDiameter = width * 2
   const earthRadius = width
@@ -65,25 +87,28 @@ const EarthAndSpacecraft = () => {
     ) + extraYDelta
 
   return <Fragment>
-    <Spacecraft
-      earthBottomYDelta={earthBottomYDelta}/>
+    <Moon/>
     <Earth
       diameter={earthDiameter}
       bottomYDelta={earthBottomYDelta}/>
+    <Spacecraft
+      earthBottomYDelta={earthBottomYDelta}/>
   </Fragment>
 }
 
-const Home = () => {
+const Onboarding = () => {
+  const { width, height } = useViewportDimensions()
+
   return <div
     style={{
       position: 'relative',
-      width: '100vw',
-      height: '100vh',
-      overflow: 'none',
+      width,
+      height: height * 1.5,
+      overflow: 'hidden',
     }}>
     <ParticleAnimation/>
     <EarthAndSpacecraft/>
   </div>
 }
 
-export default Home
+export default Onboarding

@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 
 import NavBar from './nav/NavBar'
-import { Home, Details } from './sections'
+import { Onboarding, Details, About } from './sections'
 
 const App = () =>
   <div
@@ -12,7 +12,8 @@ const App = () =>
     }}
   >
     <NavBar/>
-    <Home/>
+    <Onboarding/>
+    <About/>
     <Details/>
   </div>
 

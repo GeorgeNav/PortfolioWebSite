@@ -1,9 +1,11 @@
-import Home from './home/Home'
+import Onboarding from './onboarding/Onboarding'
+import About from './about_me/About'
 import Details from './details/Details'
 import Interests from './interests/Interests'
 
 export {
-  Home,
+  Onboarding,
+  About,
   Details,
   Interests,
 }
