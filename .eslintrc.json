@@ -25,16 +25,17 @@
   ],
   "rules": {
     "semi": [
-      2,
+      1,
       "never"
     ],
     "quotes": [
-      2,
+      1,
       "single"
     ],
     "indent": [
-      2,
+      1,
       2
-    ]
+    ],
+    "no-unused-vars": 1
   }
 }

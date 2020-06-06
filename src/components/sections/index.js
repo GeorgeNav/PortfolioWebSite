@@ -1,7 +1,7 @@
-import Onboarding from './onboarding/Onboarding'
-import About from './about_me/About'
-import Details from './details/Details'
-import Interests from './interests/Interests'
+import Onboarding from 'components/sections/onboarding/Onboarding'
+import About from 'components/sections/about_me/About'
+import Details from 'components/sections/details/Details'
+import Interests from 'components/sections/interests/Interests'
 
 export {
   Onboarding,

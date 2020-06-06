@@ -2,11 +2,11 @@ import React from 'react'
 import { Button, ButtonGroup } from '@material-ui/core'
 
 // Icons
-import PDFFileIcon from '../../../assets/images/icons/pdf_file_icon.svg'
-import DocFileIcon from '../../../assets/images/icons/doc_file_icon.svg'
+import PDFFileIcon from 'assets/images/icons/pdf_file_icon.svg'
+import DocFileIcon from 'assets/images/icons/doc_file_icon.svg'
 
 // Hooks
-import { useResumeURLs } from '../../../../hooks'
+import { useResumeURLs } from 'hooks'
 
 const iconStyle = {
   width: '30px',

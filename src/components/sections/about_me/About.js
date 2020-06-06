@@ -1,10 +1,10 @@
 import React from 'react'
 import { Typography, Paper } from '@material-ui/core'
-import { useViewportDimensions } from '../../../hooks'
+import { useViewportDimensions } from 'hooks'
 import shortid from 'shortid'
 
 // Images
-import cloudPng from '../../../assets/images/artifacts/clouds.png'
+import cloudPng from 'assets/images/artifacts/clouds.png'
 
 // CSS
 import './cloud.css'
@@ -36,6 +36,7 @@ const About = () => {
         src={cloudPng}
         key={shortid.generate()}
         className='cloudGrow'
+        alt='Cloud'
         style={{
           position: 'absolute',
           //pointerEvents: 'none',

@@ -1,6 +1,6 @@
 import React from 'react'
 import Particles from 'react-particles-js'
-import { useViewportDimensions } from '../../../hooks'
+import { useViewportDimensions } from 'hooks'
 
 const particleStyle = {
   display: 'absolute',

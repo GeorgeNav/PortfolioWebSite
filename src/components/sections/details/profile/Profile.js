@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card, CardContent, Divider, Typography } from '@material-ui/core'
 import LazyLoad from 'react-lazy-load'
-import ResumeDownloadButtons from './ResumeDownloadButtons'
-import { useProfilePicURL } from '../../../../hooks'
+import ResumeDownloadButtons from 'components/sections/details/profile/ResumeDownloadButtons'
+import { useProfilePicURL } from 'hooks'
 
 const picLength = 500
 

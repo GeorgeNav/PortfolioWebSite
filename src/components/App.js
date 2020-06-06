@@ -1,14 +1,15 @@
 import React from 'react'
 import './App.css'
 
-import NavBar from './nav/NavBar'
-import { Onboarding, Details, About } from './sections'
+import NavBar from 'components/nav/NavBar'
+import { Onboarding, Details, About } from 'components/sections'
 
 const App = () =>
   <div
     style={{
       width: '100vw',
       height: '100vh',
+      overflowX: 'hidden',
     }}
   >
     <NavBar/>

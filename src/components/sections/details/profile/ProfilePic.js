@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactLoading from 'react-loading'
-import { useProfilePicURL } from '../../../../hooks'
+import { useProfilePicURL } from 'hooks'
 
 const picLength = 400
 

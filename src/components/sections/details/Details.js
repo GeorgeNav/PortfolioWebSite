@@ -1,5 +1,5 @@
 import React from 'react'
-import lakeImage from '../../../assets/images/backgrounds/lake.jpg'
+import lakeImage from 'assets/images/backgrounds/lake.jpg'
 
 const Details = () =>
   <div

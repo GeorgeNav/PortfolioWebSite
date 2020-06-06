@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const mediaQueries = [
   '(min-width: 1500px)',
@@ -18,11 +18,11 @@ function useDeviceType(
   defaultValue) {
   const mediaQueryLists = queries.map(q => window.matchMedia(q))
 
-  const getValue = () => {
+  const getValue = useCallback(() => {
     const index = mediaQueryLists.findIndex(mql => mql.matches)
 
     return typeof values[index] !== 'undefined' ? values[index] : defaultValue
-  }
+  }, [defaultValue, values, mediaQueryLists])
 
   const [value, setValue] = useState(getValue)
 
@@ -34,7 +34,7 @@ function useDeviceType(
 
       return () => mediaQueryLists.forEach(mql => mql.removeListener(handler))
     },
-    []
+    [mediaQueryLists, getValue]
   )
 
   return value

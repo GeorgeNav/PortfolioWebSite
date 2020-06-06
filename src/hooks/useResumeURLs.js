@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fbStorage } from '../utils/db'
+import { fbStorage } from 'utils/database'
 
 const useResumeURLs = () => {
   const [ loading, setLoading ] = useState(true)
