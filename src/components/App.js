@@ -10,8 +10,7 @@ const App = () =>
       width: '100vw',
       height: '100vh',
       overflowX: 'hidden',
-    }}
-  >
+    }}>
     <NavBar/>
     <Onboarding/>
     <About/>

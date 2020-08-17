@@ -35,7 +35,7 @@ const Onboarding = () => {
     style={{
       position: 'relative',
       width,
-      height: height * 1.5,
+      height: height * 1.25,
       overflow: 'hidden',
     }}>
     <ParticleAnimation/>

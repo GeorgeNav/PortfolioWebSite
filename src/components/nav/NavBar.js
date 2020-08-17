@@ -7,7 +7,7 @@ const linkedInURL = 'https://www.linkedin.com/in/george-navarro-b368b0154'
 
 const color = 'white'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     alignContent: 'center',
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color,
   },
-}))
+})
 
 const TitleButton = () => {
   const { title } = useStyles()

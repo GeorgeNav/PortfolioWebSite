@@ -36,6 +36,27 @@
       1,
       2
     ],
-    "no-unused-vars": 1
+    "no-unused-vars": "warn",
+    "no-extra-parens": "warn",
+    "react/prop-types": "warn",
+    "space-before-blocks": [
+      "warn",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "warn",
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "never"
+      }
+    ],
+    "arrow-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ]
   }
 }

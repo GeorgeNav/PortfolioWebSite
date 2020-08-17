@@ -1,7 +1,0 @@
-.cloudGrow {
-  transition: all .2s ease-in-out;
-}
-
-.cloudGrow:hover {
-  transform: scale(1.3);
-}
