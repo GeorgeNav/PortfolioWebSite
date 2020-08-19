@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
-import { Card, CardHeader, IconButton, CardActions, CardContent, Typography, makeStyles, Icon, Tooltip, CardMedia } from '@material-ui/core'
+import { Card, CardHeader, IconButton, CardActions, CardContent, Typography, makeStyles, Icon, Tooltip, CardMedia, CardActionArea } from '@material-ui/core'
 import { GitHub, Link } from '@material-ui/icons'
 import shortid from 'shortid'
 
@@ -28,7 +28,10 @@ const FuelConsolidator = ({ project }) => {
   
   return <Card
     className={classes.root}
-    style={{position: 'relative'}}>
+    style={{
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
     <CardHeader
       avatar={
         <IconButton
@@ -47,7 +50,7 @@ const FuelConsolidator = ({ project }) => {
       titleTypographyProps={{variant: 'h6'}}
       subheader={project.for}>
     </CardHeader>
-    <CardMedia>
+    <CardMedia style={{flexGrow: 0}}>
       <Carousel
         autoPlay={true}
         className={classes.media}>
@@ -69,10 +72,12 @@ const FuelConsolidator = ({ project }) => {
           </a>)}
       </Carousel>
     </CardMedia>
-    <CardContent>
+    <CardContent style={{flexGrow: 1}}>
       <Typography>
         {project.details}
       </Typography>
+    </CardContent>
+    <CardActionArea style={{flexGrow: 0}}>
       {project.technologies.map(({
         KEY, LINK, LOGO,
       }) =>
@@ -91,19 +96,19 @@ const FuelConsolidator = ({ project }) => {
             </Icon>
           </IconButton>
         </Tooltip>)}
-    </CardContent>
-    <CardActions>
-      <IconButton
-        target='_blank'
-        href={project.github}>
-        <GitHub/>
-      </IconButton>
-      <IconButton
-        target='_blank'
-        href={project.website}>
-        <Link/>
-      </IconButton>
-    </CardActions>
+      <CardActions>
+        <IconButton
+          target='_blank'
+          href={project.github}>
+          <GitHub/>
+        </IconButton>
+        <IconButton
+          target='_blank'
+          href={project.website}>
+          <Link/>
+        </IconButton>
+      </CardActions>
+    </CardActionArea>
   </Card>
 }
 

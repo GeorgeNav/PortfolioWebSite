@@ -1,5 +1,6 @@
 import FUEL_CONSOLIDATOR_IMAGES from 'assets/images/projects/fuel_consolidator'
 import WOULD_YOU_RATHER_IMAGES from 'assets/images/projects/would_you_rather'
+import PORTFOLIO_IMAGES from 'assets/images/projects/portfolio'
 import TECH from 'utils/technologies'
 
 const PROJECT_TYPES = {
@@ -13,9 +14,10 @@ const PROJECTS = {
     for: 'University of Houston - Software Design',
     technologies: [
       TECH.LANGUAGES.DART,
+      TECH.LIBRARIES.DART.FLUTTER,
       TECH.DATABASES.NO_SQL.FIRESTORE,
     ],
-    details: 'A fuel company\'s customer portal that calculates a personalized fuel price for a potential customer based off a number of factors include location, previous purchases, bulk ordering, etc.',
+    details: 'A fuel company\'s customer portal that calculates a personalized fuel price for potential customers based off a number of factors including location, previous purchases, bulk ordering, etc',
     github: 'https://github.com/GeorgeNav/Fuel-Consolidator',
     website: 'https://fuelconsolidator.com',
     ...FUEL_CONSOLIDATOR_IMAGES,
@@ -29,10 +31,24 @@ const PROJECTS = {
       TECH.LIBRARIES.JAVASCRIPT.REACT_REDUX,
       TECH.LIBRARIES.JAVASCRIPT.REACT_BOOTSTRAP,
     ],
-    details: 'A frontend application where the user is able to view, vote, and create \'would you rather\' style questions on predefined accounts.',
+    details: 'A frontend application where the user is able to view, vote, and create \'would you rather\' style questions on predefined accounts',
     github: 'https://github.com/GeorgeNav/WouldYouRather-ReactND',
     website: 'https://loving-varahamihira-f2987e.netlify.app',
     ...WOULD_YOU_RATHER_IMAGES,
+  },
+  portfolio: {
+    title: 'Portfolio',
+    for: 'Personal',
+    technologies: [
+      TECH.LANGUAGES.JAVASCRIPT,
+      TECH.LIBRARIES.JAVASCRIPT.REACT,
+      TECH.LIBRARIES.JAVASCRIPT.REACT_MATERIAL_UI,
+      TECH.STORAGE.FIRESTORE,
+    ],
+    details: 'A fullstack application that showcases my accomplishments and credentials. You are viewing this now!',
+    github: 'https://github.com/GeorgeNav/PortfolioWebSite',
+    website: 'https://georgenav.com',
+    ...PORTFOLIO_IMAGES,
   },
 }
 
