@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Paper, Box } from '@material-ui/core'
+import { Typography, Paper } from '@material-ui/core'
 import { PROJECTS } from 'utils/projects'
 import ProjectCards from './project_cards/ProjectCards'
 
