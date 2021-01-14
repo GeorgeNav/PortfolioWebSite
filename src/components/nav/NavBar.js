@@ -28,7 +28,10 @@ const useStyles = makeStyles({
 const TitleButton = () => {
   const { title } = useStyles()
 
-  return <Typography className={title} variant='h6'>
+  return <Typography
+    className={title}
+    variant='h6'
+    style={{pointerEvents: 'none'}}>
     George Navarro
   </Typography>
 }
@@ -62,7 +65,11 @@ const NavBar = () => {
 
   return <AppBar
     color='transparent'
-    position='fixed'
+    position='absolute'
+    style={{
+      top: 0,
+      left: 0,
+    }}
     elevation={0}>
     <Toolbar
       className={root}>

@@ -26,8 +26,6 @@ const Details = () => {
     docx: null,
   })
 
-  console.log(resumeURLs)
-
   useEffect(() => {
     const resumeName = 'GeorgeNavarroResume'
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
-import { Card, CardHeader, IconButton, CardActions, CardContent, Typography, makeStyles, Icon, Tooltip, CardMedia, CardActionArea } from '@material-ui/core'
+import { Card, CardHeader, IconButton, CardActions, CardContent, Typography, makeStyles, Tooltip, CardMedia, CardActionArea, Avatar, Button } from '@material-ui/core'
 import { GitHub, Link } from '@material-ui/icons'
 import shortid from 'shortid'
+import YouTube from 'react-youtube'
 
 const useCardStyle = makeStyles({
   root: {
@@ -34,17 +35,15 @@ const FuelConsolidator = ({ project }) => {
     }}>
     <CardHeader
       avatar={
-        <IconButton
+        <Button
           target='_blank'
-          href={project.website}>
-          <Icon
-            className={classes.projectLogo}>
-            <img
-              className={classes.projectLogo}
-              src={project.logo}
-              alt={project.title + ' logo'}/>
-          </Icon>
-        </IconButton>
+          href={project.website || project.github}>
+          <Avatar
+            variant='rounded'
+            className={classes.projectLogo}
+            src={project.logo}>
+          </Avatar>
+        </Button>
       }
       title={project.title}
       titleTypographyProps={{variant: 'h6'}}
@@ -52,24 +51,44 @@ const FuelConsolidator = ({ project }) => {
     </CardHeader>
     <CardMedia style={{flexGrow: 0}}>
       <Carousel
-        autoPlay={true}
+        /* autoPlay={true} */
         className={classes.media}>
-        {project.images.map((imageData) =>
-          <a
-            target='_blank'
-            rel='noopener noreferrer'
-            href={project.website}
-            key={shortid.generate()}>
-            <img
-              className={classes.media}
-              style={{
-                objectFit: 'contain',
-                alignSelf: 'center',
+        {(() => {
+          const images = project.images ? project.images.map((imageData) =>
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              href={project.website}
+              key={shortid.generate()}>
+              <img
+                className={classes.media}
+                style={{
+                  objectFit: 'contain',
+                  alignSelf: 'center',
+                  width: 345,
+                }}
+                src={imageData}
+                alt='website page'/>
+            </a>) : []
+
+          const videos = project.yt_video_ids ? project.yt_video_ids.map((id) =>
+            <YouTube
+              key={shortid.generate()}
+              videoId={id}
+              opts={{
+                height: 345 * 9/16,
                 width: 345,
-              }}
-              src={imageData}
-              alt='website page'/>
-          </a>)}
+                playerVars: {
+                  autoplay: 1,
+                  // controls: 0,
+                },
+              }}/>) : []
+
+          return [
+            ...images,
+            ...videos,
+          ]
+        })()}
       </Carousel>
     </CardMedia>
     <CardContent style={{flexGrow: 1}}>
@@ -87,13 +106,10 @@ const FuelConsolidator = ({ project }) => {
           <IconButton
             target='_blank'
             href={LINK}>
-            <Icon
-              className={classes.techLogo}>
-              <img
-                src={LOGO}
-                alt={KEY + ' logo'}
-                className={classes.techLogo}/>
-            </Icon>
+            <img
+              src={LOGO}
+              alt={KEY + ' logo'}
+              className={classes.techLogo}/>
           </IconButton>
         </Tooltip>)}
       <CardActions>
@@ -102,11 +118,11 @@ const FuelConsolidator = ({ project }) => {
           href={project.github}>
           <GitHub/>
         </IconButton>
-        <IconButton
+        {project.website && <IconButton
           target='_blank'
           href={project.website}>
           <Link/>
-        </IconButton>
+        </IconButton>}
       </CardActions>
     </CardActionArea>
   </Card>

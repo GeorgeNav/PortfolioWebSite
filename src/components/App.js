@@ -1,20 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './App.css'
 
 import NavBar from 'components/nav/NavBar'
-import { Onboarding, Details, About } from 'components/sections'
+import { Onboarding, Details, Projects } from 'components/sections'
+import './App.css'
 
 const App = () =>
-  <div
-    style={{
-      width: '100vw',
-      height: '100vh',
-      overflowX: 'hidden',
-    }}>
+  <Fragment>
     <NavBar/>
     <Onboarding/>
-    <About/>
+    <Projects/>
     <Details/>
-  </div>
+  </Fragment>
 
 export default App

@@ -1,5 +1,7 @@
 import javascriptIcon from 'assets/images/icons/languages/javascript.svg'
 import dartIcon from 'assets/images/icons/languages/dart.svg'
+import cppIcon from 'assets/images/icons/languages/c++.svg'
+import swiftIcon from 'assets/images/icons/languages/swift.png'
 // import firebaseIcon from 'assets/images/icons/databases/firebase.png'
 import firebaseStorageIcon from 'assets/images/icons/storage/firebase_storage.svg'
 import firebaseFirestoreIcon from 'assets/images/icons/databases/firebase_firestore.svg'
@@ -12,6 +14,14 @@ import reactBootstrapIcon from 'assets/images/icons/libraries/react_bootstrap.pn
 import reactReduxIcon from 'assets/images/icons/libraries/react_redux.png'
 import reactMaterialUIIcon from 'assets/images/icons/libraries/react_material_ui.svg'
 import flutterIcon from 'assets/images/icons/libraries/flutter.svg'
+import openglIcon from 'assets/images/icons/libraries/opengl.svg'
+import fsCalendarIcon from 'assets/images/icons/libraries/fs_calendar.png'
+import chartsIcon from 'assets/images/icons/libraries/charts.png'
+import threeLogo from 'assets/images/icons/libraries/three_js.png'
+import nodeAddonsLogo from 'assets/images/icons/libraries/node_addons.png'
+import expressLogo from 'assets/images/icons/libraries/express.png'
+import socketIoLogo from 'assets/images/icons/libraries/socket_io.svg'
+import pugLogo from 'assets/images/icons/libraries/pug.png'
 
 const TECH = {
   LANGUAGES: {
@@ -24,6 +34,16 @@ const TECH = {
       KEY: 'Dart',
       LINK: 'https://dart.dev/',
       LOGO: dartIcon,
+    },
+    CPP: {
+      KEY: 'C++',
+      LINK: 'https://en.wikipedia.org/wiki/C%2B%2B',
+      LOGO: cppIcon,
+    },
+    SWIFT: {
+      KEY: 'Swift',
+      LINK: 'https://developer.apple.com/swift/',
+      LOGO: swiftIcon,
     },
   },
   STORAGE: {
@@ -88,6 +108,31 @@ const TECH = {
         LINK: 'https://react-redux.js.org/',
         LOGO: reactReduxIcon,
       },
+      THREE: {
+        KEY: 'ThreeJS via react-three-fiber',
+        LINK: 'https://github.com/pmndrs/react-three-fiber',
+        LOGO: threeLogo,
+      },
+      NODE_ADDONS: {
+        KEY: 'node-addon-api via node-gyp',
+        LINK: 'https://github.com/nodejs/node-gyp',
+        LOGO: nodeAddonsLogo,
+      },
+      EXPRESS: {
+        KEY: 'ExpressJS',
+        LINK: 'https://expressjs.com/',
+        LOGO: expressLogo,
+      },
+      SOCKET_IO: {
+        KEY: 'Socket.io',
+        LINK: 'https://socket.io/',
+        LOGO: socketIoLogo,
+      },
+      PUG: {
+        KEY: 'Pug',
+        LINK: 'https://pugjs.org/',
+        LOGO: pugLogo,
+      },
     },
     DART: {
       FLUTTER: {
@@ -95,6 +140,25 @@ const TECH = {
         LINK: 'https://flutter.dev/',
         LOGO: flutterIcon,
       }
+    },
+    CPP: {
+      OPENGL: {
+        KEY: 'OpenGL',
+        LINK: 'https://www.opengl.org/',
+        LOGO: openglIcon,
+      },
+    },
+    SWIFT: {
+      FS_CALENDAR: {
+        KEY: 'FS Calendar',
+        LINK: 'https://cocoapods.org/pods/FSCalendar',
+        LOGO: fsCalendarIcon,
+      },
+      CHARTS: {
+        KEY: 'Charts',
+        LINK: 'https://cocoapods.org/pods/charts',
+        LOGO: chartsIcon,
+      },
     },
   },
 }

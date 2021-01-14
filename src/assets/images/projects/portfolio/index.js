@@ -1,8 +1,8 @@
-import profilePic from './profile_pic.jpg'
+import websitePortfolioPic from './website_portfolio.png'
 import onboardingPic from './onboarding.png'
 
 const PORTFOLIO_IMAGES = {
-  logo: profilePic,
+  logo: websitePortfolioPic,
   images: [
     onboardingPic,
   ],
