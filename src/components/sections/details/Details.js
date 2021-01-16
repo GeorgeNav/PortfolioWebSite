@@ -74,7 +74,6 @@ const Details = () => {
         transform: 'translateY(-50%)',
       }}>
       <CardHeader
-        title='Resume'
         action={
           <Fragment>
             <IconButton
