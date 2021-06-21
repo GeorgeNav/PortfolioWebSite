@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.a6c4261e.chunk.css",
-    "main.js": "./static/js/main.69043887.chunk.js",
-    "main.js.map": "./static/js/main.69043887.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.afd3186e.js",
-    "runtime-main.js.map": "./static/js/runtime-main.afd3186e.js.map",
-    "static/js/2.5115bb79.chunk.js": "./static/js/2.5115bb79.chunk.js",
-    "static/js/2.5115bb79.chunk.js.map": "./static/js/2.5115bb79.chunk.js.map",
+    "main.css": "./static/css/main.bc2891b4.chunk.css",
+    "main.js": "./static/js/main.34686570.chunk.js",
+    "main.js.map": "./static/js/main.34686570.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.39dbb347.js",
+    "runtime-main.js.map": "./static/js/runtime-main.39dbb347.js.map",
+    "static/js/2.cf1ca28a.chunk.js": "./static/js/2.cf1ca28a.chunk.js",
+    "static/js/2.cf1ca28a.chunk.js.map": "./static/js/2.cf1ca28a.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.a6c4261e.chunk.css.map": "./static/css/main.a6c4261e.chunk.css.map",
-    "static/js/2.5115bb79.chunk.js.LICENSE.txt": "./static/js/2.5115bb79.chunk.js.LICENSE.txt",
+    "static/css/main.bc2891b4.chunk.css.map": "./static/css/main.bc2891b4.chunk.css.map",
+    "static/js/2.cf1ca28a.chunk.js.LICENSE.txt": "./static/js/2.cf1ca28a.chunk.js.LICENSE.txt",
     "static/media/annotate.58d85caf.png": "./static/media/annotate.58d85caf.png",
     "static/media/annotation_tool.2a0a88d0.png": "./static/media/annotation_tool.2a0a88d0.png",
     "static/media/answered_question.88ee6b2f.png": "./static/media/answered_question.88ee6b2f.png",
     "static/media/bernard3D.858876ee.png": "./static/media/bernard3D.858876ee.png",
     "static/media/c++.2441702d.svg": "./static/media/c++.2441702d.svg",
     "static/media/charts.496c4aba.png": "./static/media/charts.496c4aba.png",
-    "static/media/code.59c500d3.jpg": "./static/media/code.59c500d3.jpg",
     "static/media/create_profile.edefe928.png": "./static/media/create_profile.edefe928.png",
     "static/media/cylinder3D.647e3a18.png": "./static/media/cylinder3D.647e3a18.png",
     "static/media/dart.5e2cd5a0.svg": "./static/media/dart.5e2cd5a0.svg",
@@ -61,9 +60,9 @@
     "static/media/would_you_rather.00db7702.png": "./static/media/would_you_rather.00db7702.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.afd3186e.js",
-    "static/js/2.5115bb79.chunk.js",
-    "static/css/main.a6c4261e.chunk.css",
-    "static/js/main.69043887.chunk.js"
+    "static/js/runtime-main.39dbb347.js",
+    "static/js/2.cf1ca28a.chunk.js",
+    "static/css/main.bc2891b4.chunk.css",
+    "static/js/main.34686570.chunk.js"
   ]
 }

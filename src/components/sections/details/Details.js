@@ -9,9 +9,10 @@ import lakeImage from 'assets/images/backgrounds/lake.jpg'
 import PDFFileIcon from 'assets/images/icons/pdf_file_icon.svg'
 import DocFileIcon from 'assets/images/icons/doc_file_icon.svg'
 
-import { Document, Page, pdfjs } from 'react-pdf'
 import { Card, IconButton, CardHeader, CardContent } from '@material-ui/core'
 import { useViewportDimensions } from 'hooks'
+
+import { Document, Page, pdfjs } from 'react-pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const iconStyle = {
@@ -40,7 +41,6 @@ const Details = () => {
           }))
         })
         .catch((error) => console.log(error))
-
     getURL('pdf')
     getURL('docx')
   }, [])
