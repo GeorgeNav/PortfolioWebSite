@@ -5,6 +5,7 @@ import {
   Book,
   Person,
 } from '@material-ui/icons'
+import SwipeableViews from 'react-swipeable-views'
 import {
   CATEGORIES,
   CATEGORY_NAMES,
@@ -26,22 +27,17 @@ const ProjectCategories = () => {
 
   return <Paper
     style={{
-      maxWidth: 800,
-      ...deviceType === 'phone'
-        ? {
-          width: '100vw',
-        } : {},
-      marginUp: 20,
+      marginTop: 20,
       ...deviceType !== 'phone'
         ? {
-          marginLeft: 20,
-          marginRight: 20,
-        } : {},
-      marginBottom: 20,
+          maxWidth: 800,
+          marginBottom: 100,
+        } : {
+          marginBottom: 20,
+        },
     }}>
     <AppBar
-      position='static'
-      color='secondary'>
+      position='static'>
       <Typewriter
         text={CATEGORIES.map(({name}) => name)[key]}/>
       <Tabs centered
@@ -71,22 +67,27 @@ const ProjectCategories = () => {
             {...a11yProps(index)} />)}
       </Tabs>
     </AppBar>
-    {CATEGORIES.map((category, index) =>
-      <Box
-        p={2}
-        key={shortid.generate()}
-        style={{
-          height: 650,
-          overflowY: 'scroll',
-          overflowX: 'hidden',
-          margin: 'auto',
-          backgroundColor: 'lightgray',
-        }}
-        role='tabpanel'
-        hidden={key !== index}>
-        {key === index && 
-          <ProjectCards projects={category.projects}/>}
-      </Box>)}
+    <SwipeableViews
+      axis='x'
+      index={key}
+      onChangeIndex={(newKey) => setKey(newKey)}>
+      {CATEGORIES.map((category, index) =>
+        <Box
+          p={2}
+          key={shortid.generate()}
+          style={{
+            height: 650,
+            overflowY: 'scroll',
+            overflowX: 'hidden',
+            margin: 'auto',
+            backgroundColor: 'lightgray',
+          }}
+          role='tabpanel'
+          hidden={key !== index}>
+          {key === index && 
+            <ProjectCards projects={category.projects}/>}
+        </Box>)}
+    </SwipeableViews>
   </Paper>
 }
 

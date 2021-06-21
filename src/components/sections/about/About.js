@@ -8,7 +8,8 @@ const About = () => {
 
   return <Box
     style={{
-      backgroundColor: 'lightblue',
+      backgroundColor: 'lightgreen',
+      padding: 20,
     }}>
     <Grid container
       justify='space-evenly'
@@ -16,13 +17,14 @@ const About = () => {
       direction={deviceType !== 'phone'
         ? 'row'
         : 'column'}>
-      <Grid cell
+      <Grid item
         style={{
           verticalAlign: 'middle',
         }}
         {...deviceType !== 'phone' ? {xs:6} : {}}>
         <Typography
           style={{
+            userSelect: 'none',
             textAlign: 'center',
             padding: 20,
           }}
@@ -30,7 +32,7 @@ const About = () => {
           Projects
         </Typography>
       </Grid>
-      <Grid cell
+      <Grid item
         {...deviceType !== 'phone' ? {xs:6} : {}}>
         <ProjectCategories/>
       </Grid>

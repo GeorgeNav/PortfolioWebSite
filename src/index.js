@@ -10,6 +10,14 @@ const theme = createMuiTheme({
       'Ubuntu',
     ].join(','),
   },
+  palette: {
+    primary: {
+      main: '#000049',
+    },
+    secondary: {
+      main: '#008A00',
+    },
+  },
 })
 
 ReactDOM.render(

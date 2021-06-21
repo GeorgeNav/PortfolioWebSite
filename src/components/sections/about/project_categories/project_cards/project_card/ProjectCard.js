@@ -7,15 +7,17 @@ import shortid from 'shortid'
 import YouTube from 'react-youtube'
 import { animated, useSpring } from 'react-spring'
 import VisibilitySensor from 'react-visibility-sensor'
+import { useDeviceType } from 'hooks'
 
 const AnimatedCard = animated(Card)
 
 const useCardStyle = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 350,
   },
   media: {
-    height: 200,
+    maxWidth: '100%',
+    objectFit: 'contain',
   },
   projectLogo: {
     width: 50,
@@ -30,6 +32,8 @@ const useCardStyle = makeStyles({
 })
 
 const ProjectCard = ({ project }) => {
+  const deviceType = useDeviceType()
+  console.log(deviceType)
   const classes = useCardStyle()
   const animation = useSpring({
     from: {
@@ -69,7 +73,7 @@ const ProjectCard = ({ project }) => {
       </CardHeader>
       <CardMedia style={{flexGrow: 0}}>
         <Carousel
-          className={classes.media}>
+          navButtonsAlwaysVisible={deviceType !== 'desktop'}>
           {(() => {
             const images = project.images ? project.images.map((imageData) =>
               <a
@@ -82,7 +86,6 @@ const ProjectCard = ({ project }) => {
                   style={{
                     objectFit: 'contain',
                     alignSelf: 'center',
-                    width: 345,
                   }}
                   src={imageData}
                   alt='website page'/>
@@ -92,9 +95,8 @@ const ProjectCard = ({ project }) => {
               <YouTube
                 key={shortid.generate()}
                 videoId={id}
+                className={classes.media}
                 opts={{
-                  height: 345 * 9/16,
-                  width: 345,
                   playerVars: {
                     autoplay: 1,
                     // controls: 0,
