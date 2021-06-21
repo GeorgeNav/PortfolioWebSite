@@ -27,6 +27,10 @@ const ProjectCategories = () => {
   return <Paper
     style={{
       maxWidth: 800,
+      ...deviceType === 'phone'
+        ? {
+          width: '100%'
+        } : {},
       marginUp: 20,
       ...deviceType !== 'phone'
         ? {
