@@ -13,6 +13,7 @@ import ProjectCards from './project_cards/ProjectCards'
 import Typewriter from 'components/sections/about/project_categories/typewriter/Typewriter'
 
 import shortid from 'shortid'
+import { useDeviceType } from 'hooks'
 
 const a11yProps = (index) => ({
   id: `simple-tab-${index}`,
@@ -20,12 +21,19 @@ const a11yProps = (index) => ({
 })
 
 const ProjectCategories = () => {
+  const deviceType = useDeviceType()
   const [key, setKey] = React.useState(0)
 
   return <Paper
     style={{
       maxWidth: 800,
-      margin: 20,
+      marginUp: 20,
+      ...deviceType !== 'phone'
+        ? {
+          marginLeft: 20,
+          marginRight: 20,
+        } : {},
+      marginBottom: 20,
     }}>
     <AppBar
       position='static'
