@@ -29,7 +29,7 @@ const ProjectCategories = () => {
       maxWidth: 800,
       ...deviceType === 'phone'
         ? {
-          width: '100%'
+          width: '100vw',
         } : {},
       marginUp: 20,
       ...deviceType !== 'phone'
