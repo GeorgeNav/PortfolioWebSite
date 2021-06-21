@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Tabs, Tab, Box, Paper } from '@material-ui/core'
+import { AppBar, Tabs, Tab, Box, Paper, Grid, Typography } from '@material-ui/core'
 import {
   School,
   Book,
@@ -10,36 +10,42 @@ import {
   CATEGORIES,
   CATEGORY_NAMES,
 } from 'utils/projects'
-import ProjectCards from './project_cards/ProjectCards'
-import Typewriter from 'components/sections/about/project_categories/typewriter/Typewriter'
+import Cards from 'components/sections/projects/categories/cards/Cards'
+import Typewriter from 'components/sections/projects/categories/typewriter/Typewriter'
 
 import shortid from 'shortid'
-import { useDeviceType } from 'hooks'
+// import { useDeviceType } from 'hooks'
 
 const a11yProps = (index) => ({
   id: `simple-tab-${index}`,
   'aria-controls': `simple-tabpanel-${index}`,
 })
 
-const ProjectCategories = () => {
-  const deviceType = useDeviceType()
+const Categories = () => {
+  // const deviceType = useDeviceType()
   const [key, setKey] = React.useState(0)
 
-  return <Paper
-    style={{
-      marginTop: 20,
-      ...deviceType !== 'phone'
-        ? {
-          maxWidth: 800,
-          marginBottom: 100,
-        } : {
-          marginBottom: 20,
-        },
-    }}>
+  return <Paper>
     <AppBar
       position='static'>
-      <Typewriter
-        text={CATEGORIES.map(({name}) => name)[key]}/>
+      <Grid container
+        align='center'
+        justify='center'
+        style={{
+          userSelect: 'none',
+          paddingTop: 20,
+          height: 70,
+        }}>
+        <Typewriter
+          text={CATEGORIES.map(({name}) => name)[key]}
+          options={{
+            typeDelay: 50,
+            backspaceDelay: 15,
+            cursor: false,
+          }}
+          wrapper={Typography}
+          variant='h4'/>
+      </Grid>
       <Tabs centered
         value={key}
         onChange={(_, newKey) => setKey(newKey)}
@@ -76,7 +82,7 @@ const ProjectCategories = () => {
           p={2}
           key={shortid.generate()}
           style={{
-            height: 650,
+            height: 600,
             overflowY: 'scroll',
             overflowX: 'hidden',
             margin: 'auto',
@@ -85,10 +91,10 @@ const ProjectCategories = () => {
           role='tabpanel'
           hidden={key !== index}>
           {key === index && 
-            <ProjectCards projects={category.projects}/>}
+            <Cards projects={category.projects}/>}
         </Box>)}
     </SwipeableViews>
   </Paper>
 }
 
-export default ProjectCategories
+export default Categories

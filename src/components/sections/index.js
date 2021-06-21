@@ -1,11 +1,11 @@
 import Space from 'components/sections/space/Space'
-import About from 'components/sections/about/About'
+import Projects from 'components/sections/projects/Projects'
 import Details from 'components/sections/details/Details'
-import Interests from 'components/sections/interests/Interests'
+import Experience from 'components/sections/experience/Experience'
 
 export {
   Space,
-  About,
+  Projects,
   Details,
-  Interests,
+  Experience,
 }

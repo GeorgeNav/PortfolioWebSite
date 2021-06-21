@@ -34,7 +34,7 @@ const Details = () => {
       fbStorage.ref(`documents/resume/${resumeName}.${extension}`)
         .getDownloadURL()
         .then((url) => {
-          console.log(extension, 'url:', url)
+          // console.log(extension, 'url:', url)
           setResumeURLs((prevResumeURLs) => ({
             ...prevResumeURLs,
             [extension]: url,

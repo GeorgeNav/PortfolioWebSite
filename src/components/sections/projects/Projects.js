@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectCategories from 'components/sections/about/project_categories/ProjectCategories'
+import Categories from 'components/sections/projects/categories/Categories'
 import { Box, Grid, Typography } from '@material-ui/core'
 import { useDeviceType } from 'hooks'
 
@@ -34,7 +34,7 @@ const About = () => {
       </Grid>
       <Grid item
         {...deviceType !== 'phone' ? {xs:6} : {}}>
-        <ProjectCategories/>
+        <Categories/>
       </Grid>
     </Grid>
   </Box>

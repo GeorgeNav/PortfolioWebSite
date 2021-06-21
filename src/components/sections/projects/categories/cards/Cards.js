@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import shortid from 'shortid'
-import { ProjectCard } from 'components/sections/about/project_categories/project_cards/project_card'
+import Card from 'components/sections/projects/categories/cards/card/Card'
 import TYPES from 'utils/types'
 
-const ProjectCards = ({ projects }) => <Grid container
+const Cards = ({ projects }) => <Grid container
   justify='center'
   direction='row'
   spacing={4}>
@@ -13,14 +13,14 @@ const ProjectCards = ({ projects }) => <Grid container
     <Grid item
       key={shortid.generate()}
       style={{display: 'flex'}}>
-      <ProjectCard
+      <Card
         project={project}/>
     </Grid>
   )}
 </Grid>
 
-ProjectCards.propTypes = {
+Cards.propTypes = {
   projects: PropTypes.arrayOf(TYPES.PROJECT),
 }
 
-export default ProjectCards
+export default Cards

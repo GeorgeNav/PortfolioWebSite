@@ -1,7 +1,7 @@
 import React from 'react'
 import TYPES from 'utils/types'
 import Carousel from 'react-material-ui-carousel'
-import { Card, CardHeader, IconButton, CardActions, CardContent, Typography, makeStyles, Tooltip, CardMedia, CardActionArea, Avatar, Button } from '@material-ui/core'
+import { Card as MUICard, CardHeader, IconButton, CardActions, CardContent, Typography, makeStyles, Tooltip, CardMedia, CardActionArea, Avatar, Button } from '@material-ui/core'
 import { GitHub, Link } from '@material-ui/icons'
 import shortid from 'shortid'
 import YouTube from 'react-youtube'
@@ -9,7 +9,7 @@ import { animated, useSpring } from 'react-spring'
 import VisibilitySensor from 'react-visibility-sensor'
 import { useDeviceType } from 'hooks'
 
-const AnimatedCard = animated(Card)
+const AnimatedCard = animated(MUICard)
 
 const useCardStyle = makeStyles({
   root: {
@@ -31,9 +31,8 @@ const useCardStyle = makeStyles({
   },
 })
 
-const ProjectCard = ({ project }) => {
+const Card = ({ project }) => {
   const deviceType = useDeviceType()
-  console.log(deviceType)
   const classes = useCardStyle()
   const animation = useSpring({
     from: {
@@ -148,8 +147,8 @@ const ProjectCard = ({ project }) => {
   }</VisibilitySensor>
 }
 
-ProjectCard.propTypes = {
+Card.propTypes = {
   project: TYPES.PROJECT,
 }
 
-export default ProjectCard
+export default Card
