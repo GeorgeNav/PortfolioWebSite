@@ -9,12 +9,12 @@ import SwipeableViews from 'react-swipeable-views'
 import {
   CATEGORIES,
   CATEGORY_NAMES,
-} from 'utils/projects'
-import Cards from 'components/sections/projects/categories/cards/Cards'
-import Typewriter from 'components/sections/projects/categories/typewriter/Typewriter'
+} from 'utils/constants/projects'
+import Cards from 'components/sections/activity/projects/categories/cards/Cards'
+import LiveTyper from 'live-typer'
 
 import shortid from 'shortid'
-// import { useDeviceType } from 'hooks'
+import { useDeviceType } from 'hooks'
 
 const a11yProps = (index) => ({
   id: `simple-tab-${index}`,
@@ -22,7 +22,7 @@ const a11yProps = (index) => ({
 })
 
 const Categories = () => {
-  // const deviceType = useDeviceType()
+  const deviceType = useDeviceType()
   const [key, setKey] = React.useState(0)
 
   return <Paper>
@@ -36,15 +36,10 @@ const Categories = () => {
           paddingTop: 20,
           height: 70,
         }}>
-        <Typewriter
-          text={CATEGORIES.map(({name}) => name)[key]}
-          options={{
-            typeDelay: 50,
-            backspaceDelay: 15,
-            cursor: false,
-          }}
-          wrapper={Typography}
-          variant='h4'/>
+        <Typography
+          variant='h4'>
+          <LiveTyper text={CATEGORIES.map(({name}) => name)[key]}/>
+        </Typography>
       </Grid>
       <Tabs centered
         value={key}
@@ -82,7 +77,7 @@ const Categories = () => {
           p={2}
           key={shortid.generate()}
           style={{
-            height: 600,
+            height: deviceType === 'phone' ? '40vh' : 600,
             overflowY: 'scroll',
             overflowX: 'hidden',
             margin: 'auto',

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import shortid from 'shortid'
-import Card from 'components/sections/projects/categories/cards/card/Card'
+import Card from 'components/sections/activity/projects/categories/cards/card/Card'
 import TYPES from 'utils/types'
 
 const Cards = ({ projects }) => <Grid container

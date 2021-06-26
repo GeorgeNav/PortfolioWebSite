@@ -1,82 +1,47 @@
 import React from 'react'
-import { AppBar, Toolbar, IconButton, ButtonGroup, Typography, makeStyles } from '@material-ui/core'
-import { GitHub, LinkedIn } from '@material-ui/icons'
-
-const gitHubURL = 'https://github.com/GeorgeNav'
-const linkedInURL = 'https://www.linkedin.com/in/george-navarro-b368b0154'
-
-const color = 'white'
-
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    alignContent: 'center',
-    justifyContent: 'space-between'
-  },
-  title: {
-    color,
-    flexGrow: 1,
-    verticalAlign: 'center',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  button: {
-    color,
-  },
-})
-
-const TitleButton = () => {
-  const { title } = useStyles()
-
-  return <Typography
-    className={title}
-    variant='h6'
-    style={{pointerEvents: 'none'}}>
-    George Navarro
-  </Typography>
-}
-
-const GitHubButton = () => {
-  const { button } = useStyles()
-
-  return <IconButton
-    target='_blank'
-    href={gitHubURL}
-    aria-label='GitHub URL'
-    className={button}>
-    <GitHub/>
-  </IconButton>
-}
-
-const LinkedInButton = () => {
-  const { button } = useStyles()
-
-  return <IconButton
-    target='_blank'
-    href={linkedInURL}
-    aria-label='LinkedIn URL'
-    className={button}>
-    <LinkedIn/>
-  </IconButton>
-}
+import { useLocation } from 'react-router-dom'
+import { AppBar, Toolbar, ButtonGroup, Breadcrumbs, Link } from '@material-ui/core'
+import { GitHub, LinkedIn } from 'components/nav/social_buttons'
+import shortid from 'shortid'
+import { SECTIONS } from 'utils/constants/sections'
 
 const NavBar = () => {
-  const { root } = useStyles()
+  const path = useLocation()
+  console.log(path)
 
   return <AppBar
+    position='fixed' // absolute
     color='transparent'
-    position='absolute'
     style={{
+      // for top nav bar
       top: 0,
-      left: 0,
+      // for bottom nav bar
+      // top: 'auto',
+      // bottom: 0,
     }}
     elevation={0}>
     <Toolbar
-      className={root}>
-      <TitleButton/>
+      style={{
+        flexGrow: 1,
+        alignContent: 'center',
+        justifyContent: 'space-between',
+      }}>
+      <Breadcrumbs
+        style={{color: 'white'}}>
+        {Object.values(SECTIONS).map((section) =>
+          <Link
+            key={shortid.generate()}
+            href={'/' + section.KEY}
+            style={{
+              color: path.pathname === '/' + section.KEY ? 'white' : 'gray',
+              textDecoration: 'none',
+            }}>
+            {section.NAME}
+          </Link>)}
+      </Breadcrumbs>
       <ButtonGroup>
-        <GitHubButton/>
-        <LinkedInButton/>
+        <GitHub/>
+        <LinkedIn/>
       </ButtonGroup>
     </Toolbar>
   </AppBar>

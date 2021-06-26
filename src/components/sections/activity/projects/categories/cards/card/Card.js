@@ -16,8 +16,9 @@ const useCardStyle = makeStyles({
     maxWidth: 350,
   },
   media: {
-    maxWidth: '100%',
-    objectFit: 'contain',
+    height: 200,
+    width: 350,
+    objectFit: 'cover',
   },
   projectLogo: {
     width: 50,
