@@ -77,7 +77,7 @@ const Categories = () => {
           p={2}
           key={shortid.generate()}
           style={{
-            height: deviceType === 'phone' ? '40vh' : 600,
+            height: deviceType === 'phone' ? '50vh' : 600,
             overflowY: 'scroll',
             overflowX: 'hidden',
             margin: 'auto',
