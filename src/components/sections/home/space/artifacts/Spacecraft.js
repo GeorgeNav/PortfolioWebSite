@@ -34,7 +34,7 @@ const Spacecraft = ({ dimensions }) => {
   return <div
     style={{
       position: 'absolute',
-      top: `${parseInt(deviceType === 'phone' ? height * 4/5 : height * 3/5)}px`,
+      top: `${parseInt(deviceType === 'phone' ? height * 4/5 : height * 4/7)}px`,
       left: `${parseInt(width/2)}px`,
       transform: 'translate(-50%, -50%)',
     }}>
