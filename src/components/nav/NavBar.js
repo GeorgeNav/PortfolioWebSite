@@ -8,7 +8,7 @@ import { SECTIONS } from 'utils/constants/sections'
 const NavBar = () => {
   const path = useLocation()
 
-  const colors = path.pathname === '/' + SECTIONS.ABOUT.KEY
+  const colors = path.pathname === '/' + SECTIONS.HOME.KEY
     ? {
       inActive: 'gray',
       active: 'white',

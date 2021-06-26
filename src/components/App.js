@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import NavBar from 'components/nav/NavBar'
-import { About, Contact, Activity, Experience } from 'components/sections'
+import { Home, Contact, Activity } from 'components/sections'
 import 'components/App.css'
-import { useRoutes } from 'react-router-dom'
+import { useRoutes, Navigate } from 'react-router-dom'
 import { SECTIONS } from 'utils/constants/sections'
 
 const root = '/'
@@ -10,9 +10,12 @@ const root = '/'
 const App = () => {
   const element = useRoutes([
     {
-      path: root + SECTIONS.ABOUT.KEY,
-      element: <About/>,
-      children: [],
+      path: root + '*',
+      element: <Navigate to={root + SECTIONS.HOME.KEY}/>,
+    },
+    {
+      path: root + SECTIONS.HOME.KEY,
+      element: <Home/>,
     },
     {
       path: root + SECTIONS.ACTIVITY.KEY,

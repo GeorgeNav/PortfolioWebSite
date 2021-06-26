@@ -7,9 +7,9 @@ import {
   Earth,
   Moon,
   Spacecraft,
-} from 'components/sections/about/space/artifacts'
-import Info from 'components/sections/about/space/info/Info'
-import Background from 'components/sections/about/space/background/Background'
+} from 'components/sections/home/space/artifacts'
+import Info from 'components/sections/home/space/info/Info'
+import Background from 'components/sections/home/space/background/Background'
 
 const Space = () => {
   const { width, height } = useViewportDimensions()

@@ -1,10 +1,10 @@
-import About from 'components/sections/about/space/Space'
+import Home from 'components/sections/home/Home'
 import Activity from 'components/sections/activity/Activity'
 import Contact from 'components/sections/contact/Contact'
 import Experience from 'components/sections/experience/Experience'
 
 export {
-  About,
+  Home,
   Activity,
   Contact,
   Experience,

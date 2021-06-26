@@ -1,9 +1,9 @@
 const SECTIONS = {
-  ABOUT: {
-    NAME: 'About',
-    KEY: '',
+  HOME: {
+    NAME: 'Home',
+    KEY: 'home',
     SECTIONS: {
-      
+
     },
   },
   ACTIVITY: {
