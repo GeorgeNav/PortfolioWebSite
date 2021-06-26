@@ -18,15 +18,18 @@ const PDF = ({ pdfUrl }) => {
       height: docDims.height / 0.71,
       width,
     }
+  const placeHolder = <Paper style={docDims}></Paper>
   
-  return pdfUrl && <Document
-    loading={<Paper style={docDims}></Paper>}
-    file={pdfUrl}>
-    <Page
-      renderAnnotationLayer={false}
-      {...docDims}
-      pageNumber={1}/>
-  </Document>
+  return pdfUrl
+    ? <Document
+      loading={placeHolder}
+      file={pdfUrl}>
+      <Page
+        renderAnnotationLayer={false}
+        {...docDims}
+        pageNumber={1}/>
+    </Document>
+    : placeHolder
 }
 
 PDF.propTypes = {
