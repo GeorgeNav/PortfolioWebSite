@@ -18,10 +18,10 @@ const App = () => {
       path: root + SECTIONS.ACTIVITY.KEY,
       element: <Activity/>,
     },
-    {
+    /* {
       path: root + SECTIONS.EXPERIENCE.KEY,
       element: <Experience/>,
-    },
+    }, */
     {
       path: root + SECTIONS.CONTACT.KEY,
       element: <Contact/>,

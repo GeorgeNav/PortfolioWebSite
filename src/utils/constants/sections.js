@@ -1,7 +1,7 @@
 const SECTIONS = {
   ABOUT: {
     NAME: 'About',
-    KEY: 'about',
+    KEY: '',
     SECTIONS: {
       
     },
