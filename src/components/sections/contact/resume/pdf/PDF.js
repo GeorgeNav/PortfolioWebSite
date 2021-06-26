@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useViewportDimensions } from 'hooks'
 import { Document, Page, pdfjs } from 'react-pdf'
-import { Paper } from '@material-ui/core'
+import { Skeleton } from '@material-ui/lab'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const scale = 0.8
@@ -18,7 +18,7 @@ const PDF = ({ pdfUrl }) => {
       height: docDims.height / 0.71,
       width,
     }
-  const placeHolder = <Paper style={docDims}></Paper>
+  const placeHolder = <Skeleton variant='rect' {...docDims}/>
   
   return pdfUrl
     ? <Document
