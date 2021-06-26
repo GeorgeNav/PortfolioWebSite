@@ -7,7 +7,16 @@ import { SECTIONS } from 'utils/constants/sections'
 
 const NavBar = () => {
   const path = useLocation()
-  console.log(path)
+
+  const colors = path.pathname === '/' + SECTIONS.ABOUT.KEY
+    ? {
+      inActive: 'gray',
+      active: 'white',
+    }
+    : {
+      inActive: 'gray',
+      active: 'lightgray',
+    }
 
   return <AppBar
     position='fixed' // absolute
@@ -27,21 +36,21 @@ const NavBar = () => {
         justifyContent: 'space-between',
       }}>
       <Breadcrumbs
-        style={{color: 'white'}}>
+        style={{color: colors.active}}>
         {Object.values(SECTIONS).map((section) =>
           <Link
             key={shortid.generate()}
             href={'/' + section.KEY}
             style={{
-              color: path.pathname === '/' + section.KEY ? 'white' : 'gray',
+              color: !path.pathname.includes(section.KEY) ? colors.inActive : colors.active,
               textDecoration: 'none',
             }}>
             {section.NAME}
           </Link>)}
       </Breadcrumbs>
       <ButtonGroup>
-        <GitHub/>
-        <LinkedIn/>
+        <GitHub color={colors.active}/>
+        <LinkedIn color={colors.active}/>
       </ButtonGroup>
     </Toolbar>
   </AppBar>

@@ -7,8 +7,9 @@ import {
   Earth,
   Moon,
   Spacecraft,
-} from 'components/sections/space/artifacts'
-import Background from 'components/sections/space/background/Background'
+} from 'components/sections/about/space/artifacts'
+import Info from 'components/sections/about/space/info/Info'
+import Background from 'components/sections/about/space/background/Background'
 
 const Space = () => {
   const { width, height } = useViewportDimensions()
@@ -17,7 +18,7 @@ const Space = () => {
     radius: width,
   }
 
-  const extraYDelta = 10
+  const extraYDelta = 0
   const earthBottomYDelta =
     earthDim.radius -
     Math.sqrt(
@@ -38,6 +39,7 @@ const Space = () => {
       overflow: 'hidden',
       backgroundColor: 'black',
     }}>
+    <Info/>
     <Background/>
     <Moon/>
     <Earth

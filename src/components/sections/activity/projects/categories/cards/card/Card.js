@@ -8,6 +8,7 @@ import YouTube from 'react-youtube'
 import { animated, useSpring } from 'react-spring'
 import VisibilitySensor from 'react-visibility-sensor'
 import { useDeviceType } from 'hooks'
+import Iframe from 'react-iframe'
 
 const AnimatedCard = animated(MUICard)
 
@@ -29,6 +30,9 @@ const useCardStyle = makeStyles({
     width: 30,
     height: 30,
     objectFit: 'contain',
+  },
+  tooltip: {
+    maxWidth: 'none',
   },
 })
 
@@ -57,15 +61,38 @@ const Card = ({ project }) => {
       }}>
       <CardHeader
         avatar={
-          <Button
-            target='_blank'
-            href={project.website || project.github}>
-            <Avatar
-              variant='rounded'
-              className={classes.projectLogo}
-              src={project.logo}>
-            </Avatar>
-          </Button>
+          project.website
+            ? <Tooltip
+              arrow
+              interactive
+              leaveDelay={300}
+              classes={{tooltip: classes.tooltip}}
+              title={
+                <Iframe
+                  width={400}
+                  height={300}
+                  url={project.website || project.github}/>}>
+              <Button
+                id={project.website || project.github}
+                target='_blank'
+                href={project.website || project.github}>
+                <Avatar
+                  variant='rounded'
+                  className={classes.projectLogo}
+                  src={project.logo}>
+                </Avatar>
+              </Button>
+            </Tooltip>
+            : <Button
+              id={project.website || project.github}
+              target='_blank'
+              href={project.website || project.github}>
+              <Avatar
+                variant='rounded'
+                className={classes.projectLogo}
+                src={project.logo}>
+              </Avatar>
+            </Button>
         }
         title={project.title}
         titleTypographyProps={{variant: 'h6'}}
@@ -90,7 +117,6 @@ const Card = ({ project }) => {
                   src={imageData}
                   alt='website page'/>
               </a>) : []
-
             const videos = project.yt_video_ids ? project.yt_video_ids.map((id) =>
               <YouTube
                 key={shortid.generate()}

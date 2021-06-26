@@ -4,13 +4,10 @@ import earthSvg from 'assets/images/artifacts/earth.svg'
 import './earth.css'
 
 // Hooks
-import { useDeviceType, useViewportDimensions } from 'hooks'
+import { useViewportDimensions } from 'hooks'
 
 const Earth = ({ dimensions, bottomYDelta }) => {
-  const deviceType = useDeviceType()
   const { height } = useViewportDimensions()
-
-  const extraYDelta = deviceType !== 'phone' ? 0 : 200
 
   return <img
     src={earthSvg}
@@ -20,7 +17,7 @@ const Earth = ({ dimensions, bottomYDelta }) => {
       position: 'absolute',
       pointerEvents: 'none',
       width: dimensions.diameter,
-      top: height - bottomYDelta - extraYDelta,
+      top: height - bottomYDelta,
       left: '-50%',
       margin: 'auto',
     }}/>

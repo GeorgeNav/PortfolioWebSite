@@ -4,9 +4,10 @@ import spacecraftSvg from 'assets/images/artifacts/spacecraft.svg'
 import fireGif from 'assets/gifs/fire.gif'
 
 // Hooks
-import { useViewportDimensions } from 'hooks'
+import { useDeviceType, useViewportDimensions } from 'hooks'
 
-const Spacecraft = ({ dimensions, bottomYDelta }) => {
+const Spacecraft = ({ dimensions }) => {
+  const deviceType = useDeviceType()
   const { width, height } = useViewportDimensions()
 
   const Body = () => <img
@@ -33,8 +34,9 @@ const Spacecraft = ({ dimensions, bottomYDelta }) => {
   return <div
     style={{
       position: 'absolute',
-      top: `${parseInt(height/2 - dimensions.width/2 - bottomYDelta/2)}px`,
-      left: `${parseInt(width/2 - dimensions.height/2)}px`,
+      top: `${parseInt(deviceType === 'phone' ? height * 4/5 : height * 3/5)}px`,
+      left: `${parseInt(width/2)}px`,
+      transform: 'translate(-50%, -50%)',
     }}>
     <Body/>
     <ThrusterFire/>
@@ -42,7 +44,6 @@ const Spacecraft = ({ dimensions, bottomYDelta }) => {
 }
 
 Spacecraft.propTypes = {
-  bottomYDelta: PropTypes.number.isRequired,
   dimensions: PropTypes.shape({
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,

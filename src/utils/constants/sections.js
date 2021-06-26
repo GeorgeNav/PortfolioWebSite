@@ -1,7 +1,7 @@
 const SECTIONS = {
-  SPACE: {
-    NAME: 'Home',
-    KEY: '',
+  ABOUT: {
+    NAME: 'About',
+    KEY: 'about',
     SECTIONS: {
       
     },
@@ -24,13 +24,13 @@ const SECTIONS = {
       },
     },
   },
-  /* EXPERIENCE: {
+  EXPERIENCE: {
     NAME: 'Experience',
     KEY: 'experience',
     SECTIONS: {
 
     },
-  }, */
+  },
   CONTACT: {
     NAME: 'Contact',
     KEY: 'contact',
