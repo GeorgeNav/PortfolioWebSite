@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useViewportDimensions } from 'hooks'
 import { Document, Page, pdfjs } from 'react-pdf'
+import { Paper } from '@material-ui/core'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const scale = 0.8
@@ -19,6 +20,7 @@ const PDF = ({ pdfUrl }) => {
     }
   
   return pdfUrl && <Document
+    loading={<Paper style={docDims}></Paper>}
     file={pdfUrl}>
     <Page
       renderAnnotationLayer={false}
