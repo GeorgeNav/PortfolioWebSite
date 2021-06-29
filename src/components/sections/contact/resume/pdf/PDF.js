@@ -11,7 +11,8 @@ const PDF = ({ pdfUrl }) => {
     width='100%'
     height='100%'
     type='application/pdf'>
-    <embed src={pdfUrl} height='100%' style={{minHeight: 400}}/>
+    <iframe
+      src={`http://docs.google.com/gview?embedded=true&url=${pdfUrl}&amp;embedded=true`} height='100%' style={{minHeight: 400}}/>
   </object>
 }
 
