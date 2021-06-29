@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 // Hooks
 import { useViewportDimensions } from 'hooks'
@@ -8,11 +8,10 @@ import {
   Moon,
   Spacecraft,
 } from 'components/sections/home/space/artifacts'
-import Info from 'components/sections/home/space/info/Info'
 import Background from 'components/sections/home/space/background/Background'
 
 const Space = () => {
-  const { width, height } = useViewportDimensions()
+  const { width } = useViewportDimensions()
   const earthDim = {
     diameter: width * 2,
     radius: width,
@@ -32,14 +31,7 @@ const Space = () => {
     height: spacecraftSize,
   }
 
-  return <div
-    style={{
-      position: 'relative',
-      height: height * 1.25,
-      overflow: 'hidden',
-      backgroundColor: 'black',
-    }}>
-    <Info/>
+  return <Fragment>
     <Background/>
     <Moon/>
     <Earth
@@ -48,7 +40,7 @@ const Space = () => {
     <Spacecraft
       dimensions={spacecraftDim}
       bottomYDelta={earthBottomYDelta}/>
-  </div>
+  </Fragment>
 }
 
 export default Space

@@ -11,7 +11,7 @@ import {
   CATEGORY_NAMES,
 } from 'utils/constants/projects'
 import Cards from 'components/sections/activity/projects/categories/cards/Cards'
-import LiveTyper from 'live-typer'
+import LiveTyper from 'components/sections/activity/projects/categories/live_typer/LiveTyper'
 
 import shortid from 'shortid'
 import { useDeviceType } from 'hooks'

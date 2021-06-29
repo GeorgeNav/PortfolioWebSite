@@ -1,29 +1,61 @@
 import React from 'react'
 import Resume from 'components/sections/contact/resume/Resume'
+import Location from 'components/sections/contact/location/Location'
 
 // Background
 import lakeImage from 'assets/images/backgrounds/lake.jpg'
 
-import { Grid } from '@material-ui/core'
+import { Container, Grid } from '@material-ui/core'
+import Form from 'components/sections/contact/form/Form'
 
-const Details = () => {
-  return <Grid container
-    spacing={0}
-    direction='column'
-    alignItems='center'
-    justify='center'
+const Contact = () => {
+  return <div
     style={{
-      width: '100vw',
-      height: '100vh',
+      minHeight: '100vh',
       backgroundImage: `url(${lakeImage})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
+      overflow: 'hidden',
     }}>
-    <Grid item>
-      <Resume/>
-    </Grid>
-  </Grid>
+    <Container
+      style={{
+        paddingTop: 100,
+        paddingBottom: 100,
+      }}
+      maxWidth='lg'>
+      <Grid container
+        direction='row'
+        alignItems='stretch'
+        justify='center'
+        spacing={4}>
+        <Grid item
+          xs={12}
+          md={6}
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+          <Resume/>
+        </Grid>
+        <Grid item container
+          direction='column'
+          wrap='nowrap'
+          spacing={4}
+          xs={12}
+          md={6}>
+          <Grid item
+            xs={12}>
+            <Form/>
+          </Grid>
+          <Grid item
+            xs={12}>
+            <Location/>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Container>
+  </div>
 }
 
-export default Details
+export default Contact

@@ -5,13 +5,14 @@ const useViewportDimensions = () => {
   const [height, setHeight] = useState(window.innerHeight)
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    const listener = window.addEventListener('resize', () => {
       // console.log(window.innerWidth, window.innerHeight)
       setWidth(window.innerWidth)
       setHeight(window.innerHeight)
     })
 
-    return () => window.removeEventListener('resize')
+    return () =>
+      window.removeEventListener('resize', listener)
   }, [])
 
   return {

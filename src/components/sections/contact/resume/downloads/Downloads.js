@@ -11,15 +11,9 @@ const iconStyle = {
   height: 30,
 }
 
-const Downloads = ({ pdfUrl, docUrl }) => {
+const Downloads = ({ pdfUrl, docUrl, ...props }) => {
   return <Box
-    style={{
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      margin: 0,
-      zIndex: 1,
-    }}>
+    {...props}>
     <IconButton
       disabled={!pdfUrl}
       href={pdfUrl}

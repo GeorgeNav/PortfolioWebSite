@@ -1,30 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
-import { useViewportDimensions } from 'hooks'
-import { Box } from '@material-ui/core'
+import React, { useEffect, useState, Fragment } from 'react'
 import PDF from 'components/sections/contact/resume/pdf/PDF'
 import Downloads from 'components/sections/contact/resume/downloads/Downloads'
 import { fbStorage } from 'utils/database'
 
-const scale = 0.8
-
 const Resume = () => {
-  const { width, height } = useViewportDimensions()
   const [resumeURLs, setResumeURLs] = useState({
     pdf: null,
     docx: null,
   })
 
-  let docDims = {
-    height: height * scale,
-    width: height * scale * 0.71,
-  }
-  if(docDims.width > width)
-    docDims = {
-      height: docDims.height / 0.71,
-      width,
-    }
-  
   useEffect(() => {
     const resumeName = 'GeorgeNavarroResume'
 
@@ -43,20 +27,19 @@ const Resume = () => {
     getURL('docx')
   }, [])
   
-  return <Box
-    style={{
-      position: 'relative',
-      width: docDims.width,
-    }}>
+  return <Fragment>
     <Downloads
+      style={{
+        position: 'absolute',
+        right: 10,
+        bottom: 10,
+        zIndex: 1,
+      }}
       docUrl={resumeURLs.docx}
       pdfUrl={resumeURLs.pdf}/>
-    <PDF pdfUrl={resumeURLs.pdf}/>
-  </Box>
-}
-
-Resume.propTypes = {
-  pdfUrl: PropTypes.string,
+    {resumeURLs.pdf && <PDF
+      pdfUrl={resumeURLs.pdf}/>}
+  </Fragment>
 }
 
 export default Resume

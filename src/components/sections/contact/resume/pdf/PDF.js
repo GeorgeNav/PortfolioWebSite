@@ -1,35 +1,21 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { useViewportDimensions } from 'hooks'
-import { Document, Page, pdfjs } from 'react-pdf'
-import { Skeleton } from '@material-ui/lab'
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
-
-const scale = 0.8
+import Pdf from '@mikecousins/react-pdf'
+import './PDF.css'
 
 const PDF = ({ pdfUrl }) => {
-  const { width, height } = useViewportDimensions()
-  let docDims = {
-    height: height * scale,
-    width: height * scale * 0.71,
-  }
-  if(docDims.width > width)
-    docDims = {
-      height: docDims.height / 0.71,
-      width,
-    }
-  const placeHolder = <Skeleton variant='rect' {...docDims}/>
+  const canvasRef = useRef()
+
+  useEffect(() => {
+    canvasRef.current.style.width = '100%'
+    canvasRef.current.style.height = '100%'
+  }, [])
   
-  return pdfUrl
-    ? <Document
-      loading={placeHolder}
-      file={pdfUrl}>
-      <Page
-        renderAnnotationLayer={false}
-        {...docDims}
-        pageNumber={1}/>
-    </Document>
-    : placeHolder
+  return <Pdf
+    ref={canvasRef}
+    className='pdf'
+    file={pdfUrl}
+    page={1}/>
 }
 
 PDF.propTypes = {
