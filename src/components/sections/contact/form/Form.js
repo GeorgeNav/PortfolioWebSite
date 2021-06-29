@@ -10,8 +10,6 @@ const Form = () => {
   const { register, /* handleSubmit, errors */ } = useForm()
 
   const onSubmit = (e) => {
-    e.preventDefault()
-
     sendForm(
       'service_znjosyj',
       'template_v1dlasy',
