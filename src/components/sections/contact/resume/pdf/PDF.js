@@ -1,25 +1,24 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import Pdf from '@mikecousins/react-pdf'
-import './PDF.css'
 
 const PDF = ({ pdfUrl }) => {
-  const canvasRef = useRef()
-
-  useEffect(() => {
-    canvasRef.current.style.width = '100%'
-    canvasRef.current.style.height = '100%'
-  }, [])
-  
-  return <Pdf
-    ref={canvasRef}
-    className='pdf'
-    file={pdfUrl}
-    page={1}/>
+  return <object
+    style={{
+      height: '100%',
+      minHeight: 400,
+    }}
+    data={pdfUrl + '#toolbar=0&navpanes=0&scrollbar=0'}
+    width='100%'
+    height='100%'
+    type='application/pdf'/>
 }
 
 PDF.propTypes = {
   pdfUrl: PropTypes.string,
+  parentDims: PropTypes.shape({
+    width: PropTypes.number,
+    height: PropTypes.number,
+  }),
 }
 
 export default PDF

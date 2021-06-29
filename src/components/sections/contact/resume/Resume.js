@@ -31,8 +31,8 @@ const Resume = () => {
     <Downloads
       style={{
         position: 'absolute',
-        right: 10,
-        bottom: 10,
+        right: 40,
+        bottom: 20,
         zIndex: 1,
       }}
       docUrl={resumeURLs.docx}

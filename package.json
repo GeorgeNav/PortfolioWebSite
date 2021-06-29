@@ -7,7 +7,6 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
-    "@mikecousins/react-pdf": "^5.5.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
@@ -33,7 +32,8 @@
     "react-swipeable-views": "^0.14.0",
     "react-visibility-sensor": "^5.1.1",
     "react-youtube": "^7.13.1",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "use-resize-observer": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

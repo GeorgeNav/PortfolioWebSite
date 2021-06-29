@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Resume from 'components/sections/contact/resume/Resume'
 import Location from 'components/sections/contact/location/Location'
 
@@ -9,6 +9,8 @@ import { Container, Grid } from '@material-ui/core'
 import Form from 'components/sections/contact/form/Form'
 
 const Contact = () => {
+  const pdfRef = useRef()
+
   return <div
     style={{
       minHeight: '100vh',
@@ -30,17 +32,21 @@ const Contact = () => {
         justify='center'
         spacing={4}>
         <Grid item
+          ref={pdfRef}
           xs={12}
           md={6}
           style={{
             position: 'relative',
+            objectFit: 'cover',
             overflow: 'hidden',
           }}>
           <Resume/>
         </Grid>
         <Grid item container
-          direction='column'
-          wrap='nowrap'
+          direction='row'
+          alignItems='stretch'
+          alignContent='stretch'
+          justify='center'
           spacing={4}
           xs={12}
           md={6}>

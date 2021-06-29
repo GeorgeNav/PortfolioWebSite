@@ -45,7 +45,6 @@ const Form = () => {
         justify='center'>
         <Typography
           align='center'
-          variant='p'
           style={{
             pointerEvents: 'none'
           }}>
