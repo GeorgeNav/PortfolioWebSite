@@ -15,13 +15,21 @@ const useParentDims = (childRef) => {
   useResizeObserver({
     ref: parentRef,
     onResize: (size) => {
-      console.log({
-        width: size.width,
-        height: size.height,
-      })
+      const {
+        paddingLeft = 0, paddingRight = 0,
+        marginLeft = 0, marginRight = 0,
+        paddingTop = 0, paddingBottom = 0,
+        marginTop = 0, marginBottom = 0,
+      } = parentRef
+  
+      const deltaX = paddingLeft + paddingRight + marginLeft + marginRight
+      const deltaY = paddingTop + paddingBottom + marginTop + marginBottom
+      const width = size.width - deltaX
+      const height = size.height - deltaY
+  
       setParentDims({
-        width: size.width,
-        height: size.height,
+        width,
+        height,
       })
     }
   })

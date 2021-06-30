@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import Resume from 'components/sections/contact/resume/Resume'
 import Location from 'components/sections/contact/location/Location'
 
@@ -6,11 +6,9 @@ import Location from 'components/sections/contact/location/Location'
 import lakeImage from 'assets/images/backgrounds/lake.jpg'
 
 import { Container, Grid } from '@material-ui/core'
-import Form from 'components/sections/contact/form/Form'
+import EmailForm from './email_form/EmailForm'
 
 const Contact = () => {
-  const pdfRef = useRef()
-
   return <div
     style={{
       minHeight: '100vh',
@@ -27,38 +25,16 @@ const Contact = () => {
       }}
       maxWidth='lg'>
       <Grid container
-        direction='row'
-        alignItems='stretch'
-        justify='center'
-        spacing={4}>
-        <Grid item
-          ref={pdfRef}
-          xs={12}
-          md={6}
-          style={{
-            position: 'relative',
-            objectFit: 'cover',
-            overflow: 'hidden',
-          }}>
-          <Resume/>
-        </Grid>
+        direction='row' spacing={4}
+        justify='center' alignItems='stretch' alignContent='stretch'>
         <Grid item container
-          direction='row'
-          alignItems='stretch'
-          alignContent='stretch'
-          justify='center'
-          spacing={4}
-          xs={12}
-          md={6}>
-          <Grid item
-            xs={12}>
-            <Form/>
-          </Grid>
-          <Grid item
-            xs={12}>
-            <Location/>
-          </Grid>
+          direction='row' spacing={4}
+          justify='center' alignItems='stretch' alignContent='stretch'
+          xs={12} md={6}>
+          <EmailForm/>
+          <Location/>
         </Grid>
+        <Resume/>
       </Grid>
     </Container>
   </div>

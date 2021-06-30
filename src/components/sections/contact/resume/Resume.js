@@ -1,7 +1,12 @@
-import React, { useEffect, useState, Fragment } from 'react'
+import React, { useEffect, useState } from 'react'
 import PDF from 'components/sections/contact/resume/pdf/PDF'
-import Downloads from 'components/sections/contact/resume/downloads/Downloads'
 import { fbStorage } from 'utils/database'
+import { Grid, Paper, Typography } from '@material-ui/core'
+
+// Icons
+import PDFFileIcon from 'assets/images/icons/pdf_file_icon.svg'
+import DocFileIcon from 'assets/images/icons/doc_file_icon.svg'
+import FileDownloadButton from 'components/sections/contact/resume/file_download_button/FileDownloadButton'
 
 const Resume = () => {
   const [resumeURLs, setResumeURLs] = useState({
@@ -27,19 +32,44 @@ const Resume = () => {
     getURL('docx')
   }, [])
   
-  return <Fragment>
-    <Downloads
+  return <Grid item
+    xs={12} md={6}>
+    <Paper
       style={{
-        position: 'absolute',
-        right: 40,
-        bottom: 20,
-        zIndex: 1,
-      }}
-      docUrl={resumeURLs.docx}
-      pdfUrl={resumeURLs.pdf}/>
-    {resumeURLs.pdf && <PDF
-      pdfUrl={resumeURLs.pdf}/>}
-  </Fragment>
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        overflow: 'hidden',
+      }}>
+      <Grid container
+        style={{
+          paddingLeft: 15,
+        }}
+        justify='space-between' alignItems='center' alignContent='center'
+        wrap='nowrap'>
+        <Grid item
+          xs={1}>
+          <Typography
+            style={{
+              fontFamily: 'Yesteryear',
+            }}
+            variant='h4'>
+            {'Resume'}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <FileDownloadButton
+            url={resumeURLs.docx}
+            icon={DocFileIcon}/>
+          <FileDownloadButton
+            url={resumeURLs.pdf}
+            icon={PDFFileIcon}/>
+        </Grid>
+      </Grid>
+      {resumeURLs.pdf && <PDF
+        pdfUrl={resumeURLs.pdf}/>}
+    </Paper>
+  </Grid>
 }
 
 export default Resume

@@ -1,27 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
+import './PDF.css'
 
 const PDF = ({ pdfUrl }) => {
-  return <object
-    style={{
-      height: '100%',
-      minHeight: 400,
-    }}
-    data={pdfUrl + '#toolbar=0&navpanes=0&scrollbar=0'}
-    width='100%'
-    height='100%'
-    type='application/pdf'>
-    <iframe
-      src={`http://docs.google.com/gview?embedded=true&url=${pdfUrl}&amp;embedded=true`} height='100%' style={{minHeight: 400}}/>
-  </object>
+  return <Document
+    file={pdfUrl}>
+    <Page
+      renderInteractiveForms={false}
+      renderAnnotationLayer={false}
+      renderTextLayer={false}
+      pageNumber={1}/>
+  </Document>
 }
 
 PDF.propTypes = {
   pdfUrl: PropTypes.string,
-  parentDims: PropTypes.shape({
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
 }
 
 export default PDF

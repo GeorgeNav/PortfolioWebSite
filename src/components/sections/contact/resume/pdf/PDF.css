@@ -1,5 +1,10 @@
-canvas.pdf {
-  /* width: 100% !important;
-  height: 100% !important; */
-  object-fit: cover;
+div.react-pdf__Page,
+div.react-pdf__Document {
+  width: 100% !important;
+}
+canvas.react-pdf__Page__canvas {
+  width: 100% !important;
+  height: unset !important;
+  margin: 0 !important;
+  zoom: 1;
 }

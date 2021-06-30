@@ -3,9 +3,6 @@ import Categories from 'components/sections/activity/projects/categories/Categor
 import { Grid, Typography } from '@material-ui/core'
 import { useDeviceType } from 'hooks'
 
-// Background
-import brickWallImage from 'assets/images/backgrounds/brick_wall_building.png'
-
 const About = () => {
   const deviceType = useDeviceType()
 
@@ -14,18 +11,7 @@ const About = () => {
     alignItems='center'
     direction={deviceType === 'desktop'
       ? 'row'
-      : 'column'}
-    style={{
-      width: '100vw',
-      height: '100vh',
-      padding: 20,
-      minHeight: '100vh',
-      boxSizing: 'border-box',
-      backgroundImage: `url(${brickWallImage})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-    }}>
+      : 'column'}>
     <Grid item
       style={{
         verticalAlign: 'middle',
