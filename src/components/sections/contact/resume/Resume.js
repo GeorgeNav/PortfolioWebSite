@@ -66,8 +66,8 @@ const Resume = () => {
             icon={PDFFileIcon}/>
         </Grid>
       </Grid>
-      {resumeURLs.pdf && <PDF
-        pdfUrl={resumeURLs.pdf}/>}
+      <PDF
+        pdfUrl={resumeURLs.pdf}/>
     </Paper>
   </Grid>
 }

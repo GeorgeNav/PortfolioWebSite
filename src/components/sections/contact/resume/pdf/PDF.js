@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
+import { Document, Page, pdfjs } from 'react-pdf/dist/esm/entry.webpack'
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 import './PDF.css'
 
 const PDF = ({ pdfUrl }) => {
-  return <Document
+  return pdfUrl && <Document
     file={pdfUrl}>
     <Page
       renderInteractiveForms={false}
