@@ -10,7 +10,7 @@ const Info = () => {
   return <Box
     style={{
       position: 'absolute',
-      pointerEvents: 'none',
+      userSelect: 'none',
       top: `${parseInt(deviceType === 'phone' ? height * 1/2 : height * 1/3)}px`,
       left: '50vw',
       transform: 'translate(-50%, -50%)',

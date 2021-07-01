@@ -15,7 +15,7 @@ const Earth = ({ dimensions, bottomYDelta }) => {
     className='rotating'
     style={{
       position: 'absolute',
-      pointerEvents: 'none',
+      userSelect: 'none',
       width: dimensions.diameter,
       top: height - bottomYDelta,
       left: '-50%',

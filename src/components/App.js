@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import NavBar from 'components/nav/NavBar'
-import { Home, Contact, Activity } from 'components/sections'
+import { Home, Contact, Activity, Experience } from 'components/sections'
 import 'components/App.css'
 import { useRoutes, Navigate } from 'react-router-dom'
 import { SECTIONS } from 'utils/constants/sections'
@@ -21,10 +21,10 @@ const App = () => {
       path: root + SECTIONS.ACTIVITY.KEY,
       element: <Activity/>,
     },
-    /* {
+    {
       path: root + SECTIONS.EXPERIENCE.KEY,
       element: <Experience/>,
-    }, */
+    },
     {
       path: root + SECTIONS.CONTACT.KEY,
       element: <Contact/>,

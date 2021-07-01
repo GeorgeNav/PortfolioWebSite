@@ -26,7 +26,8 @@ const Contact = () => {
       maxWidth='lg'>
       <Grid container
         direction='row' spacing={4}
-        justify='center' alignItems='stretch' alignContent='stretch'>
+        justify='center' alignItems='stretch' alignContent='stretch'
+        style={{backdropFilter: 'blur(5px)'}}>
         <Grid item container
           direction='row' spacing={4}
           justify='center' alignItems='stretch' alignContent='stretch'

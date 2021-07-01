@@ -14,15 +14,13 @@ import Cards from 'components/sections/activity/projects/categories/cards/Cards'
 import LiveTyper from 'components/sections/activity/projects/categories/live_typer/LiveTyper'
 
 import shortid from 'shortid'
-import { useDeviceType } from 'hooks'
 
 const a11yProps = (index) => ({
-  id: `simple-tab-${index}`,
-  'aria-controls': `simple-tabpanel-${index}`,
+  id: `tab-${index}`,
+  'aria-controls': `tabpanel-${index}`,
 })
 
 const Categories = () => {
-  const deviceType = useDeviceType()
   const [key, setKey] = React.useState(0)
 
   return <Paper>
@@ -38,7 +36,15 @@ const Categories = () => {
         }}>
         <Typography
           variant='h4'>
-          <LiveTyper text={CATEGORIES.map(({name}) => name)[key]}/>
+          <LiveTyper
+            options={{ // include everything below
+              typeDelay: 50, // millisecond delay in typing characters on text prop change
+              backspaceDelay: 15, // millisecond delay in deleting characters on text prop change
+              cursor: true, // to show or not show animated cursor after last character
+              cursorBlinkSpeed: 250, // how fast the cursor blinks
+              cursorOpacity: 0.5, // how opac cursor is when flashing on
+            }}
+            text={CATEGORIES.map(({name}) => name)[key]}/>{' Projects'}
         </Typography>
       </Grid>
       <Tabs centered
@@ -77,7 +83,7 @@ const Categories = () => {
           p={2}
           key={shortid.generate()}
           style={{
-            height: deviceType === 'phone' ? '50vh' : 600,
+            height: 600,
             overflowY: 'scroll',
             overflowX: 'hidden',
             margin: 'auto',

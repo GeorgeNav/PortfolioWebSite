@@ -24,13 +24,13 @@ const SECTIONS = {
       },
     },
   },
-  /* EXPERIENCE: {
+  EXPERIENCE: {
     NAME: 'Experience',
     KEY: 'experience',
     SECTIONS: {
 
     },
-  }, */
+  },
   CONTACT: {
     NAME: 'Contact',
     KEY: 'contact',

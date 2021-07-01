@@ -16,7 +16,7 @@ const Location = () => {
         align='center'
         variant='h3'
         style={{
-          pointerEvents: 'none'
+          userSelect: 'none'
         }}>
       My General Location
       </Typography>

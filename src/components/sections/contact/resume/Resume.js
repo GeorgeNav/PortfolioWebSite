@@ -52,6 +52,7 @@ const Resume = () => {
           <Typography
             style={{
               fontFamily: 'Yesteryear',
+              userSelect: 'none',
             }}
             variant='h4'>
             {'Resume'}

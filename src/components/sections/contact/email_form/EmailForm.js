@@ -11,7 +11,7 @@ const EmailForm = () => {
       align='center'
       variant='h3'
       style={{
-        pointerEvents: 'none'
+        userSelect: 'none'
       }}>
       {'Email George'}
     </Typography>
@@ -24,7 +24,7 @@ const EmailForm = () => {
       align='center'
       variant='h5'
       style={{
-        pointerEvents: 'none'
+        userSelect: 'none'
       }}>
       {'I\'d love to chat with you about how I can help'}
     </Typography>
