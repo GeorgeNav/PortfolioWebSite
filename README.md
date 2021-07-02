@@ -1,3 +1,10 @@
+# My Portfolio
+
+# Fixes
+1. Image preview `https://medium.com/@Scotty_Lingner/linkedin-link-preview-images-not-showing-up-try-this-3cd80043b5bb`
+
+# Boilerplate
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
