@@ -1,4 +1,3 @@
-import ANNOTATION_TOOL_RESOURCES from 'assets/images/projects/annotation_tool'
 import FLOW_VISUALIZATION_SYSTEM_RESOURCES from 'assets/images/projects/flow_visualization_system'
 import INTERACTIVE_GRAPHICS_RESOURCES from 'assets/images/projects/interative_graphics'
 import STUDY_BASH_RESOURCES from 'assets/images/projects/study_bash'
@@ -34,20 +33,6 @@ const CATEGORIES = [
         github: 'https://github.com/duongnb09/FlowVis20',
         website: 'http://davim.cs.uh.edu:3000/',
         ...FLOW_VISUALIZATION_SYSTEM_RESOURCES,
-      },
-      {
-        title: 'Annotation Tool',
-        for: 'University of Houston - Dr. Kakadiaris',
-        technologies: [
-          TECH.LANGUAGES.JAVASCRIPT,
-          TECH.LIBRARIES.JAVASCRIPT.PUG,
-          TECH.LIBRARIES.JAVASCRIPT.EXPRESS,
-          TECH.DATABASES.SQL.MYSQL,
-        ],
-        details: 'A full stack application that enables video classification and data science for various datasets',
-        github: 'https://git.cbl.e.uh.edu/AnnotationTool/video-annotation-tool/',
-        website: 'https://ideation.cbl.uh.edu/',
-        ...ANNOTATION_TOOL_RESOURCES,
       },
     ],
   },
