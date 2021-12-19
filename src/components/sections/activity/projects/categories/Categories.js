@@ -11,7 +11,7 @@ import {
   CATEGORY_NAMES,
 } from 'utils/constants/projects'
 import Cards from 'components/sections/activity/projects/categories/cards/Cards'
-import LiveTyper from 'components/sections/activity/projects/categories/live_typer/LiveTyper'
+import LiveTyper from 'live-typer'
 
 import shortid from 'shortid'
 
@@ -37,13 +37,6 @@ const Categories = () => {
         <Typography
           variant='h4'>
           <LiveTyper
-            options={{ // include everything below
-              typeDelay: 50, // millisecond delay in typing characters on text prop change
-              backspaceDelay: 15, // millisecond delay in deleting characters on text prop change
-              cursor: true, // to show or not show animated cursor after last character
-              cursorBlinkSpeed: 250, // how fast the cursor blinks
-              cursorOpacity: 0.5, // how opac cursor is when flashing on
-            }}
             text={CATEGORIES.map(({name}) => name)[key]}/>{' Projects'}
         </Typography>
       </Grid>

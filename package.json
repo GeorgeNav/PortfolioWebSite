@@ -14,7 +14,7 @@
     "firebase": "^8.6.8",
     "google-map-react": "^2.1.10",
     "history": "^5.0.0",
-    "live-typer": "^1.0.8",
+    "live-typer": "^1.0.12",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
